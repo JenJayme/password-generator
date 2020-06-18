@@ -19,6 +19,14 @@ var charNumeric = '0123456789';
 var charSpecial = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
 
 //DEFINE FUNCTIONS
+//for-loop 
+for(var i=0; i < l; i++ )
+{  
+text += char_list.charAt(Math.floor(Math.random() * char_list.length));
+}
+return text;
+}
+console.log(makeid(8));
 //prompt user to choose 3 character types
 //prompt user to specify length between 8-129 characters
 //validate input
