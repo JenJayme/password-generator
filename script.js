@@ -12,11 +12,11 @@ var charSpecial = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
 var userChoiceLength;
 var includedTypes = []; //Initialized as an empty array. We'll push types into this array based on user answers to create a password recipe.  
 
-//Need an array that is a pool of possible characters based on user choices. Again, this could be done by array or string.
-var charPool ();
+//Need a pool of possible characters, only including those types the user chose.  Again, this could be done by array or string.  Set up an empty string.
+var charPool '';
 
-//Need a bucket to hold the new password.
-var passWord
+//Need a bucket to hold the new password. Set up an empty string.
+var passWord = '';
 
 //DEFINE FUNCTIONS
 //Prompt the user to specify a length between 8-129 characters.  This will determine the number of characters chosen in the math.random function later. 
@@ -28,7 +28,7 @@ var userChoiceLength = prompt ("How many characters would you like your password
 
 function go {
 
-  //Use a while loop to rerun the prompts while the includedTypes is >1, to ensure user chooses at least one character type.
+  //Prompt user for length and type choices, record and confirm their choices. Use a while loop to rerun the prompts while the includedTypes is >1, to ensure user chooses at least one character type.
 
   while (includedTypes.length < 1) {
 
@@ -59,30 +59,17 @@ function go {
 
 }
 
-// Use math.random to choose random characters from the pool.
-Generate a password with a character count that equals the length the user requested
-
-function createPassword {
-  [Math.floor(math.random)
+// Use math.random to choose random characters from the pool and return them to the passWord field.
+function selectRandom {
+  for (var i=0; i<userChoiceLength.length; i++) {
+    var rnum = Math.floor(Math.random() * charPool.length);
+    passWord += charPool.substring(rnum,rnum+1)
+  }
 }
-
   
-function generate {
-// use a for loop to run this action the number of times needed for the specified length. 
-  for (var i = 0; i < userChoiceLength.length; i++) {
-  passWord = passWord + randomChar(charPool);
-}
-
-}
-
-
 var generateBtn = document.querySelector("#generate");
 
-
-
 // Write password to the #password input
-
-onclick
 
 function writePassword() {
   var password = generatePassword();
@@ -94,10 +81,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
 
 
 //Work done when I didn't realize we had a started index.html and script.js. Ugh.
