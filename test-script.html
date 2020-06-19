@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Test</title>
+</head>
+<body>
+    <script>
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
@@ -25,11 +35,11 @@ generateBtn.addEventListener("click", writePassword);
 //DEFINE FUNCTIONS***************************************************
 //Ask user to choose types and create the character pool by concatenating from the strings defined above. Log to console. Use a while loop to rerun the prompts while the includedTypes is >1, to ensure user chooses at least one character type.
 
-function generate() {
+function generate {
 
   while (includedTypes.length < 1) {
 
-  confirm ("Would you like to include UPPERCASE LETTERS?")); if true {
+  if (confirm ("Would you like to include UPPERCASE LETTERS?")) {
     includedTypes.push("UpCase");
     charPool.concat(charUCase);
   } 
@@ -53,7 +63,7 @@ function generate() {
   }
 }
 
-function gotIt() {
+function gotIt {
   alert ("Got it! You'd like to create a password that is " + userChoiceNum + "characters long, and include the following types of characters: " + includedTypes + ". Here it comes!");
   console.log ("Length " + userChoiceNum + " | Types: " + includedTypes);
 }
@@ -67,7 +77,7 @@ function selectRandom {
   }
 }
 //Validate new password meets criteria
-function validate() {
+function validate {
 if (newPassword.length >=8 && <=128) isValid="True") 
 else isValid="False"; alert ("We were unable to validate this password. Try again."); go();
 }
@@ -92,3 +102,9 @@ gotIt();
 selectRandom();
 validate();
 writePassword()
+
+
+</script>
+    
+</body>
+</html>
