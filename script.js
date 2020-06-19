@@ -34,32 +34,35 @@ var isValid;
 
 function generatePassword() {
 
-    userChoiceNum = prompt ("How many characters would you like your password to have?  Please choose a number between 8 and 128.");
-
-    while (includedTypes.length < 1) {
-      
-    if confirm ("Would you like to include UPPERCASE LETTERS?")); if true {
-      includedTypes.push("UpCase");
-      charPool.concat(charUCase);
-
-    if (confirm ("Would you like to include LOWERCASE LETTERS?")) {
-      includedTypes.push("LowCase");
-      charPool.concat(charLCase); 
-    } 
-    
-    if (confirm ("Would you like to include NUMBERS?")) {
-      includedTypes.push("Numbers");
-      charPool.concat(charNumeric);
-    } 
-    
-    if (confirm ("Would you like to include SPECIAL CHARACTERS?")) {
-      includedTypes.push("Special");-+
-      charPool.concat(charSpecial);
-    }
-  
-    if (userChoiceNum <8 || >128)) alert ("Oops! That's not a number between 8 and 128. Please choose again.")
-    }
+  while (userChoiceNum.length <8 || userChoiceNum >128) {
+        userChoiceNum = prompt ("How many characters would you like your password to have?  Please choose a number between 8 and 128.");
+        if (userChoiceNum <8 || userChoiceNum >128)) alert ("Oops! That's not a number between 8 and 128. Please choose again.")
   }
+
+  while (includedTypes.length < 1) {
+      
+      if confirm("Would you like to include UPPERCASE LETTERS?")); if true {
+        includedTypes.push("UpCase");
+        charPool.concat(charUCase);
+      }
+
+      if confirm("Would you like to include LOWERCASE LETTERS?")) {
+        includedTypes.push("LowCase");
+        charPool.concat(charLCase); 
+      } 
+    
+      if confirm("Would you like to include NUMBERS?")) {
+        includedTypes.push("Numbers");
+        charPool.concat(charNumeric);
+      } 
+    
+      if confirm ("Would you like to include SPECIAL CHARACTERS?")) {
+        includedTypes.push("Special");-+
+        charPool.concat(charSpecial);
+      }
+  
+  } 
+
   
   function gotIt() {
     alert ("Got it! You'd like to create a password that is " + userChoiceNum + "characters long, and include the following types of characters: " + includedTypes + ". Here it comes!");
