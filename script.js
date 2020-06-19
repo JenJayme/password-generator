@@ -22,10 +22,16 @@ var passWord
 //Prompt the user to specify a length between 8-129 characters.  This will determine the number of characters chosen in the math.random function later. 
 var userChoiceLength = prompt ("How many characters would you like your password to have?  Please choose a number between 8 and 128.");
 
-//Ask user to choose types and create the character pool by concatenating from the strings defined above.  
+//Ask user to choose types and create the character pool by concatenating from the strings defined above. Log to console.  
 
+//object.onclick = function(){myScript};
 
-function chooseCharSet {
+function go {
+
+  //Use a while loop to rerun the prompts while the includedTypes is >1, to ensure user chooses at least one character type.
+
+  while (includedTypes.length < 1) {
+
 
   if confirm ("Would you like to include UPPERCASE LETTERS?") {
     includedTypes.push("UpCase");
@@ -43,24 +49,32 @@ function chooseCharSet {
   } 
   
   if confirm ("Would you like to include SPECIAL CHARACTERS?") {
-    includedTypes.push("Special")
+    includedTypes.push("Special");
     charPool.concat(charSpecial);
   }
 
-  console.log(userChoiceLength, includedTypes);
+  alert ("Got it! You'd like to create a password that is " + userChoiceLength + "characters long, and include the following types of characters: " + includedTypes + ". Just a moment.");
+
+  console.log ("Length " + userChoiceLength + " | Types: " + includedTypes);
+
 }
+
+// Use math.random to choose random characters from the pool.
+Generate a password with a character count that equals the length the user requested
 
 function createPassword {
   [Math.floor(math.random)
 }
 
-// Generate a password with a character count that equals the length the user requested
   
 function generate {
-// Use a for loop
+// use a for loop to run this action the number of times needed for the specified length. 
   for (var i = 0; i < userChoiceLength.length; i++) {
   passWord = passWord + randomChar(charPool);
 }
+
+}
+
 
 var generateBtn = document.querySelector("#generate");
 
