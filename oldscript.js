@@ -27,12 +27,12 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
 
-  while (includedTypes.length < 1) {
-
   confirm ("Would you like to include UPPERCASE LETTERS?")); if true {
     includedTypes.push("UpCase");
     charPool.concat(charUCase);
   } 
+
+  while (includedTypes.length < 1) {
   
   if (confirm ("Would you like to include LOWERCASE LETTERS?")) {
     includedTypes.push("LowCase");
@@ -82,7 +82,6 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-  console.log({newPassword, charPool.length, passwordText});
 }
 
 //CALL FUNCTIONS
