@@ -1,7 +1,7 @@
 // PASSWORD GENERATOR
 
-$('#generate').click(buttonCheck);
-$('#charpool').click(generatePassword);
+//event listener for generate button
+$('#generate').click(generatePassword);
 
 //simple function to confirm button works
 function buttonCheck () {
@@ -9,37 +9,23 @@ function buttonCheck () {
   console.log("Button check alert working here.")
 }
 
-// return password to the front end
-function writePassword() {
-    console.log("Engaging writePassword function...");
-    var password = generatePassword();
-    var passwordText = document.getElementById("#password");
-
-    passwordText.value = password;
-
-};
-
-
 function generatePassword () {
-    console.log("Engaging writePassword function...");
-    //strings or arrays from which to pull characters
+    console.log("OK let's generate your password. First, a few questions...");
 
-    //variable to hold user's chosen length
-    var chosenLength = chosenLength = prompt ("How many characters would you like your password to have?  Please choose a number between 8 and 128.");
+      //variable to hold user's chosen length
+      var chosenLength = chosenLength = prompt ("How many characters would you like your password to have?  Please choose a number between 8 and 128.");
+
+      //pool of types to include
+      var includedTypes = [];
+      var characterPool = [];
+
+      //pool of characters from which to choose after user specifies their desired types
+      var lowercase = "abcdefghijklmnopqrstuvwxyz";
+      var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      var numbers = "0123456789";
+      var specialChar = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
 
     //function to push selected character types into characterPool array
-    alert("Creating character pool...");
-
-    //pool of types to include
-    var includedTypes = [];
-    var characterPool = [];
-
-    //pool of characters from which to choose after user specifies their desired types
-    var lowercase = "abcdefghijklmnopqrstuvwxyz";
-    var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var numbers = "0123456789";
-    var specialChar = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
-    // var specialArr = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", "/", ",", ":", "<", "=", ">", "?", "@", "[", "]", "^", "_", "{", "}", "~"]  ]
 
     var hasLowercase, hasUppercase, hasNumbers, hasSpecial;
 
@@ -70,8 +56,8 @@ function generatePassword () {
       //error message if a number is not between 8-128
       if (chosenLength <8 || chosenLength > 128) { alert ("Oops! That's not a number between 8 and 128. Please choose again.") }
 
-      console.log("characterPool =", characterPool);
-      console.log("includedTypes =", includedTypes);
+      // console.log("characterPool =", characterPool);
+      console.log("Got it! We'll generate a new password with the following types of characters: ", includedTypes);
 
       //variable to temporarily hold next character before concat  
       var randomItem;
@@ -87,8 +73,11 @@ function generatePassword () {
       newPassword.concat(randomItem);
       newPassword += randomItem;
       console.log("New password", newPassword);
-      }
+    }
 
+    // return password to the front end  
+    $('#password').append(newPassword)
+    return newPassword;
 
     //==========================================================================
 
@@ -123,13 +112,10 @@ function generatePassword () {
     //   console.log("Character pool at end", characterPool)
 
     //==========================================================================
+    
 }
 
 // $('#questionsModal').modal('show')
-
-
 // $( document ).ready(function() {
-
-
 // })
 

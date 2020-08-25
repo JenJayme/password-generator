@@ -14,7 +14,8 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  /* background-color: #AF9AB2; */
+  background-color: #AF9AB2;
 }
 
 .wrapper {
@@ -27,15 +28,18 @@ header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  /* color: hsl(206, 17%, 28%); */
+  color: #672A4E;
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  /* background-color: #672A4E; */
+  background-color: #672A4E;
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
+  /* color: hsl(206, 17%, 28%); */
+  color: #C7EDE4;
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
@@ -74,7 +78,7 @@ header {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: #820B8A;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
@@ -104,13 +108,13 @@ button[disabled] {
   border: none;
   display: block;
   width: 100%;
-  padding-top: 15px;
+  padding-top: 25px;
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 85px;
-  font-size: 1.2rem;
+  font-size: 2rem;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
   border: 2px dashed #c0c7cf;
   border-radius: 6px;
@@ -126,7 +130,8 @@ button[disabled] {
   }
 
   #password {
-    font-size: 1rem;
+    font-size: 2rem;
+    margin-top: 2em;
   }
 }
 
