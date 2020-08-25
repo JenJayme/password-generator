@@ -1,106 +1,108 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
+// PASSWORD GENERATOR
 
-// Write password to the #password input
+$('#generate').click(buttonCheck);
+$('#charpool').click(generatePassword);
+
+//simple function to confirm button works
+function buttonCheck () {
+  alert("Button check alert!");
+  console.log("Button check alert working here.")
+}
+
+// return password to the front end
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+    console.log("Engaging writePassword function...");
+    var password = generatePassword();
+    var passwordText = document.getElementById("#password");
 
-  passwordText.value = password;
+    passwordText.value = password;
+
+};
+
+
+function generatePassword () {
+    console.log("Engaging writePassword function...")
+    //strings or arrays from which to pull characters
+
+    //variable with empty string to hold new password
+    var newPassword = "";
+
+    //variable to hold user's chosen length
+    var chosenLength = 8;
+
+    //function to push selected character types into characterPool array
+  function createCharacterPool () {
+
+    alert("Creating character pool...");
+
+    var lowercase = "abcdefghijklmnopqrstuv";
+    var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var numbers = "0123456789";
+    var specialChar = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
+    // var specialArr = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", "/", ",", ":", "<", "=", ">", "?", "@", "[", "]", "^", "_", "{", "}", "~"]  ]
+
+    //pool of types to include
+    var types = ["lowercase", "numbers"];
+
+    //pool of characters from which to choose after user specifies their desired types
+    var characterPool = [];
+
+    //variable to hold user's chosen length
+    var chosenLength = 8;
+
+
+    switch(types) {
+        case includes("lowercase"):
+        characterPool.push(lowercase);
+        console.log("with lowercase", characterPool)
+        break;
+
+        case includes("uppercase"):
+            characterPool.push(uppercase);
+            console.log("with uppercase", characterPool)
+        break;
+
+        case includes("numbers"):
+            characterPool.push(numbers);
+            console.log("with numbers", characterPool)
+        break;
+
+        case includes("uppercase"):
+            characterPool.push(specialChar);
+            console.log("with special", characterPool)
+        break;
+
+        default:
+            console.log("Other type found", types[0]);
+            console.log("Character Pool default", characterPool)
+        return types;
+    }
+
+      console.log("Character pool at end", characterPool)
+  }
+
+  function generateRandomItem () {
+        //variable to temporarily hold next character before concat  
+        var randomItem;
+
+        //function to randomly choose a character and return to variable randomItem
+        randomItem = lowercase[Math.floor(math.random()*lowercase.length)]
+
+        //use for loop and concat function to push characters into new string 
+        for (var i = 0; i < chosenLength; i++) {
+            newPassword.concat()
+        }
+  }
+
+  createCharacterPool();
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// $('#questionsModal').modal('show')
 
-//Sets of the possible characters in each type. It seems this can be done either by array or string. 
-var charLCase = "abcdefghijklmnopqrstuvwxyz";
-var charUCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var charNumeric = "0123456789";
-var charSpecial = "!@#$%^&*()_+~`|}{[]\:;?><,./-=";
 
-//Buckets to hold the user's answers.
-var userChoiceNum;
-var includedTypes = []; //Empty array. We'll push types into this based on user answers to create a password recipe.  
+// $( document ).ready(function() {
 
-//String of possible characters, only types chosen by the user. Initially empty.
-var charPool = "";
 
-//Boolean for new Password validation.
-var isValid;
+// })
 
-//DEFINE FUNCTIONS***************************************************
-//Begin by asking user to choose types and creating the character pool by concatenating from the strings defined above. Log to console. Use a while loop to rerun the prompts while the includedTypes is >1, to ensure user chooses at least one character type.
-
-function generatePassword() {
-
-  while (userChoiceNum.length <8 || userChoiceNum >128) {
-        userChoiceNum = prompt ("How many characters would you like your password to have?  Please choose a number between 8 and 128.");
-        if (userChoiceNum <8 || userChoiceNum >128)) alert ("Oops! That's not a number between 8 and 128. Please choose again.")
-  }
-
-  while (includedTypes.length < 1) {
-      
-      if confirm("Would you like to include UPPERCASE LETTERS?")); if true {
-        includedTypes.push("UpCase");
-        charPool.concat(charUCase);
-      }
-
-      if confirm("Would you like to include LOWERCASE LETTERS?")) {
-        includedTypes.push("LowCase");
-        charPool.concat(charLCase); 
-      } 
-    
-      if confirm("Would you like to include NUMBERS?")) {
-        includedTypes.push("Numbers");
-        charPool.concat(charNumeric);
-      } 
-    
-      if confirm ("Would you like to include SPECIAL CHARACTERS?")) {
-        includedTypes.push("Special");-+
-        charPool.concat(charSpecial);
-      }
-  
-  } 
-
-  
-  function gotIt() {
-    alert ("Got it! You'd like to create a password that is " + userChoiceNum + "characters long, and include the following types of characters: " + includedTypes + ". Here it comes!");
-    console.log(charLCase + charUCase + charNumeric + charSpecial);
-    console.log(userChoiceNum + includedTypes + charPool + newPassword + isValid);
-      }
-  
-  // Use math.random to choose random characters from the pool and return them to the passWord field.
-  function selectRandom {
-    for (var i=0; i<userChoiceNum.length; i++) {
-      var rnum = Math.floor(Math.random() * charPool.length);
-      newPassword += charPool.substring(rnum,rnum+1);
-      console.log("rnum: "+ rnum + " | password: "+ password);
-    }
-  }
-  //Validate new password meets criteria
-  function validate() {
-  if (newPassword.length >=8 && <=128) isValid="True") 
-  else isValid="False"; alert ("We were unable to validate this password. Try again."); go();
-  }
-  
-  //not sure if I need this but don't want to lose it.  commented out. 
-  //function 
-  // passWord.push(String(charPool[i]));
-  //var generateBtn = document.querySelector("#generate"); <--do I need this?
-  
-  // Write password to the #password input
-  function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-    passwordText.value = password;
-  }
-  
-  //CALL FUNCTIONS
-  
-  generatePassword();
-  gotIt();
-  selectRandom();
-  validate();
-  writePassword()
-  
