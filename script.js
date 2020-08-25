@@ -51,13 +51,13 @@ function generatePassword () {
       if (confirm ("Would you like to include LOWERCASE LETTERS?") == true) { 
         hasLowercase = true;
         includedTypes.push("Lowercase");
-        characterPool.concat(lowercase);
+        characterPool.push(...lowercase);
       }
 
       if (confirm ("Would you like to include UPPERCASE LETTERS?") == true) {
         hasUppercase = true; 
         includedTypes.push("Uppercase");
-        characterPool.concat(uppercase);
+        characterPool.push(...uppercase);
       }
 
       if (confirm ("Would you like to include NUMBERS?") == true) {
@@ -74,7 +74,8 @@ function generatePassword () {
 
       if (chosenLength <8 || chosenLength > 128) { alert ("Oops! That's not a number between 8 and 128. Please choose again.") }
 
-      console.log("characterPool =", characterPool)
+      console.log("characterPool =", characterPool);
+      console.log("includedTypes =", includedTypes);
 }
 
 
