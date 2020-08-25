@@ -21,18 +21,13 @@ function writePassword() {
 
 
 function generatePassword () {
-    console.log("Engaging writePassword function...")
+    console.log("Engaging writePassword function...");
     //strings or arrays from which to pull characters
-
-    //variable with empty string to hold new password
-    var newPassword = "";
 
     //variable to hold user's chosen length
     var chosenLength = chosenLength = prompt ("How many characters would you like your password to have?  Please choose a number between 8 and 128.");
 
     //function to push selected character types into characterPool array
-  function createCharacterPool () {
-
     alert("Creating character pool...");
 
     //pool of types to include
@@ -72,11 +67,27 @@ function generatePassword () {
         characterPool.concat(specialChar);
       }
 
+      //error message if a number is not between 8-128
       if (chosenLength <8 || chosenLength > 128) { alert ("Oops! That's not a number between 8 and 128. Please choose again.") }
 
       console.log("characterPool =", characterPool);
       console.log("includedTypes =", includedTypes);
-}
+
+      //variable to temporarily hold next character before concat  
+      var randomItem;
+
+      //variable with empty string to hold new password
+      var newPassword = "";
+
+      //use for-loop and concat function to push characters into new string 
+      for (var i = 0; i < chosenLength; i++) {
+      //function to randomly choose a character and return to variable randomItem
+      randomItem = characterPool[Math.floor(Math.random() * characterPool.length)];
+      console.log("Random item =", randomItem);
+      newPassword.concat(randomItem);
+      newPassword += randomItem;
+      console.log("New password", newPassword);
+      }
 
 
     //==========================================================================
@@ -111,24 +122,7 @@ function generatePassword () {
     //   console.log("Types after switch function", types);
     //   console.log("Character pool at end", characterPool)
 
-  
     //==========================================================================
-
-  function generateRandomItem () {
-        //variable to temporarily hold next character before concat  
-        var randomItem;
-
-        //function to randomly choose a character and return to variable randomItem
-        randomItem = lowercase[Math.floor(math.random()*lowercase.length)]
-
-        //use for loop and concat function to push characters into new string 
-        for (var i = 0; i < chosenLength; i++) {
-            newPassword.concat()
-        }
-  }
-
-  createCharacterPool();
-
 }
 
 // $('#questionsModal').modal('show')
